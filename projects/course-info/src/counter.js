@@ -11,12 +11,16 @@ const App = () =>{
     const setToZero = () => {
         setCounter(0)
     }
+    const decreaseByOne = () => {
+        setCounter(counter - 1)
+    }
     // setTimeout( () => setCounter(counter + 1), 1000)
     return(
         <div>
             <Display counter={counter} />
-            <button onClick={increaseByOne}>Add One</button>
-            <button onClick={setToZero}>Set to Zero</button>
+            <Button onClick={increaseByOne} text='Plus' />
+            <Button onClick={setToZero} text='Set To 0' />
+            <Button onClick={decreaseByOne} text ='Minus' />
         </div>
     )
 }
@@ -25,7 +29,13 @@ const Display = (props) =>{
     return(
         <div>{props.counter}</div>
     )
+}
 
-
+const Button = (props) => {
+    return(
+        <button onClick={props.onClick}>
+            {props.text}
+        </button>
+    )
 }
 export default App;
